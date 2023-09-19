@@ -1,17 +1,23 @@
 package com.example.rickmorty;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+@RestController
+@RequestMapping("/api/character")
+@RequiredArgsConstructor
 public class RickMortyController {
 
-
+    private final RickMortyService rickMortyService;
 
 
     @GetMapping()
-    public List<Product> getAllProducts() {
-        System.out.println("Du hast die testGetAllProducts() Methode über MockMvc aufgerufen ");
-        return productService.findAllProducts();
+    String getCharacter() {
+        System.out.println("Du hast die Rick&Morty Api aufgerufen ");
+        return rickMortyService.getCharacter();
     }
 }
