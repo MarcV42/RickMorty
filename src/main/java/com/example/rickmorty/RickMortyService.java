@@ -1,23 +1,25 @@
 package com.example.rickmorty;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
+
+import java.util.List;
 
 @Service
 public class RickMortyService {
 
-    private final WebClient webClient = WebClient.create("https://rickandmortyapi.com/api/character");
+    public final WebClient webClient = WebClient.create("https://rickandmortyapi.com/api/character");
 
-    public String getCharacter() {
+    public RickMortyCharacterResponse getCharacter() {
 
-        webClient
+        ResponseEntity<RickMortyCharacterResponse> response = webClient
                 .get()
-                .uri("/1")
                 .retrieve()
                 .toEntity(RickMortyCharacterResponse.class)
                 .block();
+        System.out.println(response);
 
-
-        return "Character";
+        return response.getBody();
     }
 }

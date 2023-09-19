@@ -6,7 +6,7 @@ public record RickMortyCharacter(
 
         int id,
         String name,
-        String age,
-        List<RickMortyRelatives> relatives
+        String age
+
 ) {
 }

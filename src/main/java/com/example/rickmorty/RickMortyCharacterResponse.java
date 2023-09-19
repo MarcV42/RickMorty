@@ -1,6 +1,8 @@
 package com.example.rickmorty;
 
-public record RickMortyCharacterResponse(RickMortyCharacter data
+import java.util.List;
+
+public record RickMortyCharacterResponse(List<RickMortyCharacter> data
                                          ) {
 
 }

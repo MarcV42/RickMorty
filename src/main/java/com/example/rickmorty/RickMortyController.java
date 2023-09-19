@@ -8,15 +8,15 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/character")
+@RequestMapping("api/")
 @RequiredArgsConstructor
 public class RickMortyController {
 
     private final RickMortyService rickMortyService;
 
 
-    @GetMapping()
-    String getCharacter() {
+    @GetMapping("characters/")
+    RickMortyCharacterResponse getCharacter() {
         System.out.println("Du hast die Rick&Morty Api aufgerufen ");
         return rickMortyService.getCharacter();
     }
